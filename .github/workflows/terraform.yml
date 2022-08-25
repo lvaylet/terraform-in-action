@@ -32,7 +32,7 @@ jobs:
     - name: Set up Google Cloud CLI
       uses: google-github-actions/setup-gcloud@v0
 
-    - name: Confirm we are indeed authenticated'
+    - name: Confirm we are indeed authenticated
       run: gcloud auth list
 
     - name: Setup Terraform
