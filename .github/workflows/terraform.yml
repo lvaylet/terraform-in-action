@@ -28,6 +28,12 @@ jobs:
         service_account: terraform-provisioner@terraform-in-action-360508.iam.gserviceaccount.com
 
     # ... further steps are automatically authenticated
+    
+    - name: Set up Google Cloud CLI
+      uses: google-github-actions/setup-gcloud@v0
+
+    - name: Confirm we are indeed authenticated
+      run: gcloud auth list
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
