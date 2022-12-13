@@ -47,8 +47,8 @@ gcloud iam service-accounts add-iam-policy-binding "${TERRAFORM_SA}@${PROJECT_ID
   --role="roles/iam.workloadIdentityUser" \
   --member="principalSet://iam.googleapis.com/${WORKLOAD_IDENTITY_POOL_ID}/attribute.repository/${REPO}"
 
-export PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} \
-  --format=get(projectNumber))"
+export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
+  --format="get(projectNumber)")
 export WORKLOAD_IDENTITY_PROVIDER_ID=$(gcloud iam workload-identity-pools providers describe "${IDENTITY_PROVIDER}" \
   --project="${PROJECT_ID}" \
   --location="global" \
