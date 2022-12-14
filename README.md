@@ -42,6 +42,7 @@ export WORKLOAD_IDENTITY_POOL_ID=$(gcloud iam workload-identity-pools describe "
   --location="global" \
   --format="value(name)")
 export REPO="lvaylet/terraform-in-action" # "username/name" e.g. "google/chrome"
+# FIXME Should we use `attribute.repository` or `attribute.repository_owner` here? See https://stackoverflow.com/questions/71781063/gcp-workload-identity-federation-github-provider-unable-to-acquire-imperson for more details.
 gcloud iam service-accounts add-iam-policy-binding "${TERRAFORM_SA}@${PROJECT_ID}.iam.gserviceaccount.com" \
   --project="${PROJECT_ID}" \
   --role="roles/iam.workloadIdentityUser" \
