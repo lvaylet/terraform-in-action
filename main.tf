@@ -6,6 +6,10 @@ terraform {
     }
   }
   required_version = ">= 0.13"
+  backend "gcs" {
+    bucket = "devops-368714-tfstate"
+    prefix = "terraform-in-action-360508"
+  }
 }
 
 provider "google" {
