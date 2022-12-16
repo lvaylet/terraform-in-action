@@ -19,7 +19,6 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_project_service" "project" {
-  project = var.project_id
   for_each = toset([
     "iamcredentials.googleapis.com",
     "compute.googleapis.com",
