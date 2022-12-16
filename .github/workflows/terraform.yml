@@ -9,7 +9,7 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
 
-    # Add "id-token" with the intended permissions.
+    # Allow the job to fetch a GitHub ID token.
     permissions:
       contents: read
       id-token: write
@@ -17,20 +17,20 @@ jobs:
     steps:
     # checkout MUST come before auth
     - name: Checkout
-      id: checkout
       uses: actions/checkout@v3
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@v0
+      uses: google-github-actions/auth@v1
       with:
+        create_credentials_file: true
         workload_identity_provider: projects/802820444097/locations/global/workloadIdentityPools/github-identity-pool/providers/github-identity-provider
         service_account: terraform-provisioner@terraform-in-action-360508.iam.gserviceaccount.com
 
     # ... further steps are automatically authenticated
     
     - name: Set up Google Cloud CLI
-      uses: google-github-actions/setup-gcloud@v0
+      uses: google-github-actions/setup-gcloud@v1
 
     - name: Confirm we are indeed authenticated
       run: gcloud auth list
