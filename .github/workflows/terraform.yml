@@ -43,6 +43,9 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.2.8
+    
+    - name: Print GOOGLE_APPLICATION_CREDENTIALS
+      run: echo ${GOOGLE_APPLICATION_CREDENTIALS}
 
     - name: Terraform Format
       id: fmt
