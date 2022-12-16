@@ -9,12 +9,12 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
 
-    # Allow the job to fetch a GitHub ID token.
     permissions:
-      actions: read
+      # Allow the job to fetch a GitHub ID token.
       contents: read
       id-token: write
-      security-events: write
+      # Allow the job to create a PR comment.
+      actions: read
       issues: write
       pull-requests: write
 
