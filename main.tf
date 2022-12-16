@@ -17,3 +17,12 @@ provider "google" {
 resource "google_compute_network" "vpc_network" {
   name = "terraformed-network"
 }
+
+resource "google_project_service" "project" {
+  for_each = toset([
+    "iamcredentials.googleapis.com",
+    "compute.googleapis.com",
+  ])
+  service                    = each.key
+  disable_dependent_services = true
+}
