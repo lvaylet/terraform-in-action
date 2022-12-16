@@ -33,20 +33,11 @@ jobs:
 
     # ... further steps are automatically authenticated
 
-    - name: Set up Google Cloud CLI
-      uses: google-github-actions/setup-gcloud@v1
-
-    - name: Confirm we are indeed authenticated
-      run: gcloud auth list
-
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.2.8
     
-    - name: Print GOOGLE_APPLICATION_CREDENTIALS
-      run: echo ${GOOGLE_APPLICATION_CREDENTIALS}
-
     - name: Terraform Format
       id: fmt
       run: terraform fmt -check
