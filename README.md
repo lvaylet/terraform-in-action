@@ -34,7 +34,7 @@ gcloud iam workload-identity-pools providers create-oidc "${IDENTITY_PROVIDER}" 
    --location="global"  \
    --workload-identity-pool="${IDENTITY_POOL}"  \
    --display-name="GitHub identity pool provider"  \
-   --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.aud=assertion.aud,attribute.repository_owner=assertion.repository_owner" \
+   --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.aud=assertion.aud,attribute.repository=assertion.repository" \
    --issuer-uri="https://token.actions.githubusercontent.com"
 
 export WORKLOAD_IDENTITY_POOL_ID=$(gcloud iam workload-identity-pools describe "${IDENTITY_POOL}" \
