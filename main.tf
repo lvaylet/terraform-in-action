@@ -2,7 +2,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 4.0" # >= 3.61 for Workload Identity Federation
+      version = "~> 5.0" # >= 3.61 for Workload Identity Federation
     }
   }
   required_version = ">= 0.13"
